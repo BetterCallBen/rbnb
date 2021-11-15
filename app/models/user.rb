@@ -7,4 +7,10 @@ class User < ApplicationRecord
   has_many :games
   has_many :reservations
   has_many :reviews
+
+  validates :name, presence: true
+  validates :pseudo, presence: true, uniqueness: true
+  validates :description, presence: true, lenght: { in: 5..400 }
+  validates :phone_number, presence: true, format: { with: /(?<!\d)\d{10}(?!\d)/, message: "Phone number must be in 0xxxxxxxxx format." }
+  validates :address, presence: true
 end
