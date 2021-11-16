@@ -1,48 +1,44 @@
 class GamesController < ApplicationController
-    before_action :set_game, only: [:show, :edit, :update, :destroy]
-    def index
-        @games = Game.all()
+  before_action :set_game, only: %i[show edit update destroy]
+
+  def index
+    @games = Game.all
+  end
+
+  def show
+  end
+
+  def new
+    @game = Game.new
+  end
+
+  def create
+    @game = Game.new(game_params)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :new
     end
+  end
 
-    def show
-    end
+  def edit
+  end
 
-    def new
-        @game = Game.new
-    end
+  def update
+    @game.update(game_params)
+  end
 
-    def create
-        @game = Game.new(game_params)
-        if (@game.save)
-            redirect_to game_path(@game)
-    
-        else
-            render :new
-        end
-    end
+  def destroy
+    @game.destroy
+  end
 
-    def edit
-    end
+  private
 
-    def update
-        @game.update(game_params)
-    end
+  def game_params
+    params.require(:game).permit(:name, :number_of_players, :category,:description,:price)
+  end
 
-    def destroy
-        @game.destroy
-    end
-
-
-
-  
-    private
-    def game_params
-        params.require(:game).permit(:name, :number_of_players, :category,:description,:price)
-      end
-
-    def set_game
-      @game = Game.find(params[:id])
-    end
-
-
+  def set_game
+    @game = Game.find(params[:id])
+  end
 end
