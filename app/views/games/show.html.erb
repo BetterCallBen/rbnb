@@ -1,0 +1,40 @@
+<div class="container">
+  <h3><%= @game.name %></h3>
+  <p>number of players : <%= @game.number_of_players %></p>
+  <p>Category <%= @game.category %></p>
+  <p><%= @game.price %>€</p>
+</div>
+
+<%= link_to "edit", edit_game_path(@game), class:"btn btn-edit" %>
+<%= link_to "Remove",
+            game_path(@game),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class:"btn btn-remove"%>
+<%= link_to 'Back', games_path, class:"btn btn-back" %>
+
+<div class="reviews-container">
+  <div class="reviews">
+    <h3>Reviews</h3>
+    <% @game.reviews.each do |review| %>
+      <div class="review">
+        <% case review.rating%>
+        <% when 5%>
+          <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
+        <% when 4%>
+          <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
+        <% when 3%>
+          <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
+        <% when 2%>
+          <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i></p>
+        <% when 1%>
+          <p class="rating"><i class="fas fa-star etoile"></i></p>
+        <% end %>
+        <p class="pd-t"><%= review.comment %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="review-form">
+  <%= render "reviews/new", locales: [ @game, Review.new ] %>
+</div>
