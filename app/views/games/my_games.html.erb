@@ -1,0 +1,21 @@
+<h2>My games</h2>
+
+<% @my_games.each do |game| %>
+<br>
+
+  <%= link_to game_path(game) do %>
+
+    <div class="">
+       <h2><%= game.name %></h2>
+      <div class="">
+      <h3>price: <%= game.price%><span>€</span></h3>
+      </div>
+       <div class="">
+          <h4>Players: <%= game.number_of_players%></h4>
+          <h4>category: <%= game.category%></h4>
+          <h4>description: <%= game.description%></h4>
+      </div>
+    </div>
+
+  <% end %>
+<%end%>
