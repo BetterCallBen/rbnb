@@ -8,5 +8,4 @@ class Game < ApplicationRecord
   validates :category, presence: true, inclusion: { in: %w[stratégie plateau dés cartes lettres créatif culture] }
   validates :description, presence: true, length: { in: 5..400 }
   validates :price, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..20 }
-
 end
