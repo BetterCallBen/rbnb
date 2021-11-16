@@ -8,11 +8,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.game = @game
-    if @review.save
-      redirect_to game_path(@game)
-    else
-      render :new
-    end
+    @review.user = current_user
+    @review.save
+    redirect_to game_path(@game)
   end
 
   def destroy

@@ -14,6 +14,8 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @owner = current_user
+    @game.owner = @owner
     if @game.save
       redirect_to game_path(@game)
     else
@@ -30,6 +32,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+    redirect_to game_path(@game)
   end
 
   private
