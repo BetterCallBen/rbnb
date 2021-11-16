@@ -1,0 +1,11 @@
+<h1>Update game</h1>
+
+<%= simple_form_for(@game) do |f| %>
+  <%= f.input :name %>
+  <%= f.select :number_of_players, %w[1 1-2 2-4 2-5 2-6 7+] %>
+  <%= f.select :category, %w[stratégie plateau dés cartes lettres créatif culture] %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.submit "Update game"%>
+
+<% end %>
