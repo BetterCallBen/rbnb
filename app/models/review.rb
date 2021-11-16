@@ -5,5 +5,4 @@ class Review < ApplicationRecord
   validates :comment, presence: true, length: { in: 5..400 }
   validates :rating, presence: true, numericality: { only_integer: true },
                      inclusion: { in: 0..5 }
-
 end
