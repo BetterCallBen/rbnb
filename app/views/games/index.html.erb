@@ -4,11 +4,11 @@
 <br>
 
   <%= link_to game_path(game) do %>
-    
+
     <div class="">
        <h2><%= game.name %></h2>
       <div class="">
-      <h3>Owner: <%= game.owner.name%></h3>
+      <h3>Owner: <%= game.owner.pseudo%></h3>
       <h3>price: <%= game.price%><span>€</span></h3>
       </div>
        <div class="">
@@ -17,6 +17,6 @@
           <h4>description: <%= game.description%></h4>
       </div>
     </div>
-    
+
   <% end %>
 <%end%>
