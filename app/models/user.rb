@@ -4,13 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :games
-  has_many :reservations
-  has_many :reviews
+  has_many :games, dependent: :destroy, foreign_key: 'owner_id'
+  has_many :reservations, dependent: :destroy, foreign_key: 'player_id'
+  has_many :reviews, dependent: :destroy
 
-  validates :name, presence: true
   validates :pseudo, presence: true, uniqueness: true
-  validates :description, presence: true, length: { in: 5..400 }
-  validates :phone_number, presence: true, format: { with: /(?<!\d)\d{10}(?!\d)/, message: "Phone number must be in 0xxxxxxxxx format." }
+  validates :phone_number, presence: true
+  validates :phone_number, format: { with: /0[1-9]\d{8}/, message: "must be in 0xxxxxxxxx format." }
   validates :address, presence: true
 end
