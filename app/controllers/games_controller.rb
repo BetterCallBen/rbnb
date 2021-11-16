@@ -1,5 +1,8 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
+  def my_games
+    @my_games = Game.where(owner: current_user)
+  end
 
   def index
     @games = Game.all
@@ -32,7 +35,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    redirect_to game_path(@game)
+    redirect_to my_games_path
   end
 
   private
