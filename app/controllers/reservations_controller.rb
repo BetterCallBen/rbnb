@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-
   def new
     @reservation = Reservation.new
     @game = Game.find(params[:game_id])
@@ -8,12 +7,13 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @game = Game.find(params[:game_id])
+    @player = current_user
     @reservation.game = @game
-    if reservation.save
-      # redirect_to games_path
+    @reservation.player = @player
+    if @reservation.save
       redirect_to my_reservations_path
     else
-      render :new
+      redirect_to game_path(@game)
     end
   end
 
