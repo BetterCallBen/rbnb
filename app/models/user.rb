@@ -15,4 +15,5 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   validates :phone_number, format: { with: /0[1-9]\d{8}/, message: "must be in 0xxxxxxxxx format." }
   validates :address, presence: true
+  scope :get_more_than, ->(amout) { where("{games.count > ?",amount) }
 end
