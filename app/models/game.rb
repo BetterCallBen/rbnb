@@ -1,7 +1,8 @@
 class Game < ApplicationRecord
   belongs_to :owner, class_name: "User"
-  has_many :reviews
-  has_many :reservations
+  has_many :reviews, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many_attached :photos
 
   validates :name, presence: true
   validates :number_of_players, presence: true, inclusion: { in: %w[1 1-2 2-4 2-5 2-6 7+] }

@@ -5,6 +5,7 @@
     <%= f.input :number_of_players, :collection => %w[1 1-2 2-4 2-5 2-6 7+] %>
     <%= f.input :description %>
     <%= f.input :price, input_html: { min: 1, max: 20 }%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <div class ="new-btns">
     <span class="btn btn-submit"><%= f.button :submit %></span> <br>
     <%= link_to("Back to Games", games_path, class:"btn btn-back") %>
