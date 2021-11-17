@@ -9,10 +9,10 @@ class GamesController < ApplicationController
 
     @users = User.all
 
-    @markers = @users.geocoded.map do |flat|
+    @markers = @users.geocoded.map do |user|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: user.latitude,
+        lng: user.longitude
       }
     end
   end
