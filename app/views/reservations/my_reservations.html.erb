@@ -1,15 +1,38 @@
 <div class="container">
 
-  <h2>My reservations</h2>
+  <h2>My reservations as a player</h2>
 
 
   <div class="my-reservations">
-    <% @my_reservations.each do |reservation| %>
+    <% @my_reservations_player.each do |reservation| %>
       <div class="my-reservation">
         <p><%= reservation.game.name %></p>
+        <p>loué par : <%= reservation.game.owner.pseudo %></p>
         <p><%= reservation.date %></p>
         <p><%= reservation.game.price %>,00€</p>
+        <%= link_to "Remove",
+                reservation_path(reservation),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
       </div>
+    <% end %>
+  </div>
+
+   <h2>My reservations as an owner</h2>
+  <div class="my-reservations">
+    <% @my_games.each do |game|%>
+      <% game.reservations.each do |reservation| %>
+        <p><%= reservation.game.name %></p>
+        <p>loué à : <%= reservation.player.pseudo %></p>
+        <p><%= reservation.date %></p>
+        <p><%= reservation.game.price %>,00€</p>
+        <%= link_to "Remove",
+                reservation_path(reservation),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
+      <% end %>
     <% end %>
   </div>
 </div>

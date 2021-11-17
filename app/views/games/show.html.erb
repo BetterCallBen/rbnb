@@ -8,15 +8,13 @@
           <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
         <% end %>
       <% end %>
-      <h3><%= @game.name %></h3><%= @rating %>
+      <h3><%= @game.name.capitalize %></h3>
+      <%= @rating %>
+      <% if @rating %>
+        <i class="fas fa-star etoile"></i>
+      <% end %>
       <p>number of players : <%= @game.number_of_players %></p>
-      <p>Category : <%= @game.category %></p>
-      <%= link_to "edit", edit_game_path(@game), class:"btn btn-edit" %>
-      <%= link_to "Remove",
-                game_path(@game),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn btn-remove"%>
+      <p>Category : <%= @game.category.capitalize %></p>
       <%= link_to 'Back', games_path, class:"btn btn-back" %>
     </div>
     <div class="reservations">
