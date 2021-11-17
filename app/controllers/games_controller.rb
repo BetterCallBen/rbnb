@@ -51,6 +51,7 @@ class GamesController < ApplicationController
 
   def update
     @game.update(game_params)
+    redirect_to game_path(@game)
   end
 
   def destroy
@@ -61,7 +62,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :number_of_players, :category,:description,:price)
+    params.require(:game).permit(:name, :number_of_players, :category, :description, :price, photos: [])
   end
 
   def set_game

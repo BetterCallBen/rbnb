@@ -3,6 +3,11 @@
   <div class="infos-reservations">
 
     <div class="game-infos">
+      <% if @game.photos.count.positive? %>
+        <% @game.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
+        <% end %>
+      <% end %>
       <h3><%= @game.name %></h3><%= @rating %>
       <p>number of players : <%= @game.number_of_players %></p>
       <p>Category : <%= @game.category %></p>
