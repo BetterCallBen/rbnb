@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update destroy]
+  before_action :set_game, only: %i[show edit update destroy average_rating]
   def my_games
     @my_games = Game.where(owner: current_user)
   end
@@ -9,6 +9,17 @@ class GamesController < ApplicationController
   end
 
   def show
+    @rating = average_rating
+  end
+
+  def average_rating
+    if @game.reviews.count.positive?
+      sum = 0
+      @game.reviews.each do |review|
+        sum += review.rating
+      end
+      return sum.to_f / @game.reviews.count
+    end
   end
 
   def new
