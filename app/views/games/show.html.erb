@@ -4,19 +4,56 @@
 
     <div class="game-infos">
       <% if @game.photos.count.positive? %>
-        <% @game.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
-        <% end %>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+           <% if @game.photos.count > 1 %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <% end %>
+          <% if @game.photos.count > 2 %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <%= cl_image_tag(@game.photos[0].key, class:"d-block w-100") %>
+          </div>
+
+          <% if @game.photos.count > 1 %>
+            <div class="carousel-item">
+              <%= cl_image_tag(@game.photos[1].key, class:"d-block w-100") %>
+            </div>
+          <% end %>
+
+          <% if @game.photos.count > 2 %>
+            <div class="carousel-item">
+              <%= cl_image_tag(@game.photos[2].key, class:"d-block w-100") %>
+            </div>
+          <% end %>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
       <% end %>
-      <h3><%= @game.name %></h3><%= @rating %>
+      <%# carousel %>
+
+
+
+      <h3><%= @game.name.capitalize %></h3>
+      <%= @rating %>
+      <% if @rating %>
+        <i class="fas fa-star etoile"></i>
+      <% end %>
       <p>number of players : <%= @game.number_of_players %></p>
-      <p>Category : <%= @game.category %></p>
-      <%= link_to "edit", edit_game_path(@game), class:"btn btn-edit" %>
-      <%= link_to "Remove",
-                game_path(@game),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn btn-remove"%>
+      <p>Category : <%= @game.category.capitalize %></p>
       <%= link_to 'Back', games_path, class:"btn btn-back" %>
     </div>
     <div class="reservations">
