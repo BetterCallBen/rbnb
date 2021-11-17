@@ -1,10 +1,7 @@
-<h1>Reservations#new</h1>
-
 <div class="form">
-  <%= simple_form_for do |f| %>
-    <%= f.input :address %>
-    <%= f.input :date, as: :datepicker %>
-    <%= f.button :submit %>
+  <%= simple_form_for locales do |f| %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%= f.button :submit, 'Réserver ce jeu', class: "btn btn-submit", data: { confirm: "Are you sure ?"} %>
     </div>
   <% end %>
 </div>

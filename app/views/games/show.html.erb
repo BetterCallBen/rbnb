@@ -1,20 +1,31 @@
 <div class="container">
-  <h3><%= @game.name %></h3>
-  <p>number of players : <%= @game.number_of_players %></p>
-  <p>Category <%= @game.category %></p>
-  <p><%= @game.price %>€</p>
-  <%= link_to "edit", edit_game_path(@game), class:"btn btn-edit" %>
-  <%= link_to "Remove",
-            game_path(@game),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class:"btn btn-remove"%>
-  <%= link_to 'Back', games_path, class:"btn btn-back" %>
 
+  <div class="infos-reservations">
 
+    <div class="game-infos">
+      <h3><%= @game.name %></h3><%= @rating %>
+      <p>number of players : <%= @game.number_of_players %></p>
+      <p>Category : <%= @game.category %></p>
+      <%= link_to "edit", edit_game_path(@game), class:"btn btn-edit" %>
+      <%= link_to "Remove",
+                game_path(@game),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
+      <%= link_to 'Back', games_path, class:"btn btn-back" %>
+    </div>
+    <div class="reservations">
+      <h2><%= @game.price %>,00€</h2>
+      <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
+    </div>
 
+  </div>
+</div>
+
+<div class="container">
 
   <div class="reviews-container">
+
     <div class="reviews">
       <h3>Reviews</h3>
       <% @game.reviews.each do |review| %>
@@ -33,11 +44,20 @@
           <% end %>
           <p><%= review.comment %></p>
           <p><%= review.user.pseudo %></p>
+          <%= link_to "Remove",
+                review_path(review),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
         </div>
       <% end %>
+
     </div>
+
     <div class="review-form">
       <%= render "reviews/new", locales: [ @game, Review.new ] %>
     </div>
+
   </div>
+
 </div>
