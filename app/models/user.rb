@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   has_many :games, dependent: :destroy, foreign_key: 'owner_id'
   has_many :reservations, dependent: :destroy, foreign_key: 'player_id'
   has_many :reviews, dependent: :destroy

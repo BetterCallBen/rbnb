@@ -6,6 +6,15 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+
+    @users = User.all
+
+    @markers = @users.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
