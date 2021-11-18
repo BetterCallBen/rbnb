@@ -1,0 +1,37 @@
+$black:rgb(0, 0, 0);
+$lime:#9bea25;
+$blue:#2587ea;
+$red:#ea2525;
+$menthe:#25eaaf;
+$pink:#ea2587;
+$violet:#8825ea;
+$gold:#ffe600;
+$yellow:#ffa100;
+.blackbg{
+    background:$black;
+}
+.greenbg{
+    background:$lime;
+  }
+  .bluebg{
+     background:$blue;
+  }
+  
+  .redbg{
+     background:$red;
+  }
+  .blueGreenbg{
+    background:$blue;
+  }
+  .pinkbg{
+    background:$pink;
+  }
+  .violetbg{
+    background:$violet;
+  }
+  .goldbg{
+      background: $gold;
+  }
+  .yellowbg{
+      background: $yellow;
+  }
