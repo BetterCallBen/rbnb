@@ -1,0 +1,65 @@
+.containerCards{
+    font-family: 'Poppins', sans-serif;
+   background: rgb(168,168,168);
+background:#060606; 
+  display:flex;
+  width:100%;
+  height: 20%;
+padding-bottom:50px;
+ justify-content:space-around;
+}
+
+.card{
+  position:relative;
+  background:white;
+  height:280px;
+  width:19%;
+  border-radius:14px;
+}
+#lyon{
+  background: top / contain no-repeat url('https://zupimages.net/up/21/46/vwjo.png');
+}
+#grenoble{
+    background: top / contain no-repeat url('https://zupimages.net/up/21/46/vtib.png');
+}
+#paris{
+    background: top / contain no-repeat url('https://zupimages.net/up/21/46/cwna.png');
+   
+}
+#nantes{
+    background: top / contain no-repeat url('https://zupimages.net/up/21/46/i0az.png');
+}
+
+#cartes{
+    background: top / contain no-repeat url('https://d1bvpoagx8hqbg.cloudfront.net/originals/instructions-vida-screw-card-game-db333711b99798512ddb6de54cc78985.jpg');
+}
+#strategie{
+    background: top / contain no-repeat url('https://64.media.tumblr.com/003051ba5f7bad31f3c389903618cf9d/tumblr_n6iyqqCXL21r201rro4_250.gifv');
+}
+#plateau{
+    background: top / contain no-repeat url('https://zupimages.net/up/21/46/w30f.png');
+}
+.boxdown{
+  width:100%;
+  height:100%;
+  
+  border-radius:10px;
+  border-top-right-radius:50px ;
+   transition:1s ease;
+  transform-origin: bottom ;
+  
+}
+.boxdown:hover{
+    border-top-right-radius:10px ;
+  transform:scaleY(0.50);
+}
+.text-box-center{
+  z-index:1;
+  position:absolute;
+  top:72%;
+  width:102%;
+  text-align:center;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+}
