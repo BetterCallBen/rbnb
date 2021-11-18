@@ -5,11 +5,12 @@
                                   defaults: { wrapper_html: { class: "mr-3" },
                                               required: false },
                                   html: { class: 'd-flex my-2' } do |f| %>
-        <%= f.input :city, label:         false,
-                              input_html:    { name: :city, value: params.dig(:city) }, class: "search city" %>
+        <%= f.input :city, label:       false,
+                           placeholder: "Where ?",
+                           input_html:  { name: :city, value: params.dig(:city) }, class: "search-city" %>
         <%= f.input :date, label:         false,
-                          as: :date, html5: true,
-                          input_html:    { name: :date, value: params.dig(:date) }, class: "search date" %>
+                           as: :date, html5: true,
+                           input_html:    { name: :date, value: params.dig(:date) }, class: "search-date" %>
         <%= f.submit "Search", class: "btn btn-primary mb-3" %>
       <% end %>
   </div>

@@ -50,7 +50,9 @@ h1, h2 {
   text-align: center;
   padding-bottom: 10px;
 }
-
+h3 {
+  margin-bottom: 20px;
+}
 h4 {
   margin: 0;
 }
@@ -63,6 +65,9 @@ h6 {
 
 .underline {
   text-decoration: underline;
+}
+.ml {
+  margin-left: 5px;
 }
 
 .pl {

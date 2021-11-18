@@ -11,32 +11,36 @@
 .card{
   position:relative;
   background:white;
-  height:260px;
+  height:230px;
   width:19%;
   border-radius:14px;
+}
+.image-card {
+  background-size: cover;
 }
 #lyon{
   background: top / contain no-repeat url('https://zupimages.net/up/21/46/vwjo.png');
 }
 #grenoble{
-    background: top / contain no-repeat url('https://zupimages.net/up/21/46/vtib.png');
+  background: top / contain no-repeat url('https://zupimages.net/up/21/46/vtib.png');
 }
 #paris{
-    background: top / contain no-repeat url('https://zupimages.net/up/21/46/cwna.png');
+  background: top / contain no-repeat url('https://zupimages.net/up/21/46/cwna.png');
 
 }
 #nantes{
-    background: top / contain no-repeat url('https://zupimages.net/up/21/46/i0az.png');
+  background: top / contain no-repeat url('https://zupimages.net/up/21/46/i0az.png');
 }
 
-#cartes{
-    background: top / contain no-repeat url('https://d1bvpoagx8hqbg.cloudfront.net/originals/instructions-vida-screw-card-game-db333711b99798512ddb6de54cc78985.jpg');
+
+#plateau{
+  background: top / contain no-repeat url('https://res.cloudinary.com/robintrllt/image/upload/v1637266180/oies_wmbn1s.jpg');
 }
 #strategie{
-    background: top / contain no-repeat url('https://64.media.tumblr.com/003051ba5f7bad31f3c389903618cf9d/tumblr_n6iyqqCXL21r201rro4_250.gifv');
+  background: top / contain no-repeat url('https://64.media.tumblr.com/003051ba5f7bad31f3c389903618cf9d/tumblr_n6iyqqCXL21r201rro4_250.gifv');
 }
-#plateau{
-    background: top / contain no-repeat url('https://zupimages.net/up/21/46/w30f.png');
+#cartes{
+  background: top / contain no-repeat url('https://d1bvpoagx8hqbg.cloudfront.net/originals/instructions-vida-screw-card-game-db333711b99798512ddb6de54cc78985.jpg');
 }
 .boxdown{
   width:100%;
