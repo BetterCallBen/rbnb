@@ -1,19 +1,15 @@
-<h1>Games List</h1>
+<div class="container">
+  <h1>Games List</h1>
 
-<%= render 'shared/search' %>
+  <%= render 'shared/search' %>
 
-<% if @games.empty? %>
-  <p>Aucun jeu dans cette zone</p>
-<% else %>
-  <% @games.each do  |game| %>
-
-  <div id="map"
-      style="width: 100%; height: 700px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  <% if @games.empty? %>
+    <p>Aucun jeu dans cette zone</p>
+  <% else %>
+  <div class="container-games-map">
+    <div>
+      <% @games.each do  |game| %>
       <%= link_to game_path(game) do %>
-
         <div class="">
           <% if game.photos.count.positive? %>
               <%= cl_image_tag game.photos.first.key, height: 400, width: 400, crop: :fill %>
@@ -31,10 +27,16 @@
             <h4>category: <%= game.category.capitalize%></h4>
             <h4>description: <%= game.description%></h4>
           </div>
-
         </div>
-
+      <% end %>
+      <% end %>
+    </div>
+    <div class="container-map">
+      <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    <% end %>
-  <%end%>
-<% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

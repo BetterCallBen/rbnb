@@ -1,0 +1,12 @@
+
+  .btn {
+    display: block ;
+    width: 100px ;
+    height: 55px ;
+    min-width: 150px ;
+    min-height: 35px;
+    background-size: 200% 200% ;
+    border-radius: 32px;
+    border: 2px solid rgb(25, 214, 213);
+    background-image: radial-gradient(circle at center center,rgb(0, 240, 228) 0%, rgb(25, 214, 213) 27.5%, rgb(0, 212, 231) 40%,rgb(40, 188, 238) 57.5%, rgb(0, 214, 225) 75%, rgb(38, 210, 225) 100%);
+}

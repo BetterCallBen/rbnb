@@ -18,6 +18,8 @@
 @import "components/homeCards";
 @import "components/show";
 @import "components/caroussel";
+@import "components/btn";
+@import "components/searchBar";
 
 .reviews-container {
   display: flex;
@@ -33,6 +35,7 @@ body{
   min-height: 100vh;
   margin: 0;
   background: rgb(241, 241, 241);
+
 }
 
 body::after {
@@ -41,18 +44,30 @@ body::after {
   height: 200px; /* Set same as footer's height */
 }
 
+h1, h2{
+  margin: 50px auto 20px auto;
+  font-family: Paytone one;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+h4 {
+  margin: 0;
+}
+
 h6 {
   color: rgb(88, 88, 88);
   font-size: small;
   margin: 0;
 }
-h4 {
-  margin: 0;
-}
+
 .underline {
   text-decoration: underline;
 }
 
 .pl {
   padding-left: 5px;
+
+a {
+  text-decoration: none;
 }

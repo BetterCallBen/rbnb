@@ -1,34 +1,44 @@
 
-
-<%= render 'shared/search' %>
-
-<div class="homeContainer">
-
-<div class="home-image">
+<div class="black-home">
+  <%= render 'shared/search' %>
+  <div class="home-image"></div>
 </div>
 
+<div class="homeContainer">
 
 <h1 class="categTown">Choose your town</h1>
 <div class="containerCards">
 
   <div class = "card" id="lyon">
-     <div class="text-box-center">Lyon</div>
-    <div class="boxdown bluebg"></div>
+    <div class="text-box-center">Lyon</div>
+    
+    <a href="/games?city=lyon&date=&commit=Search" class="boxdown bluebg">
+    </a>
+    
   </div>
+
+
  <div class = "card" id="grenoble">
-     <div class="text-box-center">Grenoble</div>
-    <div class="boxdown greenbg"></div>
+    <div class="text-box-center">Grenoble</div>
+   
+    <a href="/games?city=Grenoble&date=&commit=Search" class="boxdown greenbg">
+    </a>
+   
   </div>
 
  <div class = "card" id="paris">
-     <div class="text-box-center">Paris</div>
-    <div class="boxdown redbg"></div>
+    <div class="text-box-center">Paris</div>
+   
+    <a href="/games?city=paris&date=&commit=Search" class="boxdown redbg">
+    </a>
+   
   </div>
+  
   <div class = "card" id="nantes">
-
-     <div class="text-box-center">Nantes</div>
-    <div class="boxdown goldbg"></div>
-
+    <div class="text-box-center">Nantes</div>
+    
+    <a href="/games?city=nantes&date=&commit=Search" class="boxdown goldbg">
+    </a>
 </div>
 
 
