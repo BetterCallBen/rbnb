@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :owner, class_name: "User"
   has_many :reviews, dependent: :destroy
   has_many :reservations, dependent: :destroy
@@ -10,5 +12,10 @@ class Game < ApplicationRecord
   validates :description, presence: true, length: { in: 5..400 }
   validates :price, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..20 }
 
-
+  def is_available?(date)
+    self.reservations.each do |reservation|
+      return false if reservation.date == Date.parse(date)
+    end
+    true
+  end
 end
