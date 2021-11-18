@@ -1,11 +1,8 @@
 <div class="container">
-
-  <h2>My reservations as a player</h2>
-
-
-  <div class="my-reservations">
+<h2>My reservations as a player</h2>
+  <div class="myreservations">
     <% @my_reservations_player.each do |reservation| %>
-      <div class="my-reservation">
+      <div class="myreservation">
         <p><%= reservation.game.name %></p>
         <p>loué par : <%= reservation.game.owner.pseudo %></p>
         <p><%= reservation.date %></p>
@@ -19,8 +16,8 @@
     <% end %>
   </div>
 
-   <h2>My reservations as an owner</h2>
-  <div class="my-reservations">
+<h2>My reservations as an owner</h2>
+  <div class="myreservations">
     <% @my_games.each do |game|%>
       <% game.reservations.each do |reservation| %>
         <p><%= reservation.game.name %></p>
