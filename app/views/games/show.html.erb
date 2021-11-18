@@ -1,67 +1,83 @@
 <div class="container">
 
-  <div class="infos-reservations">
+  <h3><%= @game.name.capitalize %></h3>
+  <div class="titre">
+    <% if @rating %>
+      <i class="fas fa-star etoile"></i><%= @rating %>
+    <% end %>
+    <h6 class="pl underline"><%= @game.owner.address %></h6>
+  </div>
+  <div class="main">
 
-    <div class="game-infos">
-      <% if @game.photos.count.positive? %>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-           <% if @game.photos.count > 1 %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <% end %>
-          <% if @game.photos.count > 2 %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <% end %>
-        </ol>
-        <div class="carousel-inner">
+    <div class="carou-desc">
 
-          <div class="carousel-item active">
-            <%= cl_image_tag(@game.photos[0].key, class:"d-block w-100") %>
+      <div class="carousel-container">
+
+        <% if @game.photos.count.positive? %>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <% if @game.photos.count > 1 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <% end %>
+              <% if @game.photos.count > 2 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <% end %>
+            </ol>
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <%= cl_image_tag(@game.photos[0].key, class:"carou-image") %>
+              </div>
+
+              <% if @game.photos.count > 1 %>
+                <div class="carousel-item">
+                  <%= cl_image_tag(@game.photos[1].key, class:"carou-image") %>
+                </div>
+              <% end %>
+
+              <% if @game.photos.count > 2 %>
+                <div class="carousel-item">
+                  <%= cl_image_tag(@game.photos[2].key, class:"carou-image") %>
+                </div>
+              <% end %>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
+        <% end %>
 
-          <% if @game.photos.count > 1 %>
-            <div class="carousel-item">
-              <%= cl_image_tag(@game.photos[1].key, class:"d-block w-100") %>
-            </div>
-          <% end %>
-
-          <% if @game.photos.count > 2 %>
-            <div class="carousel-item">
-              <%= cl_image_tag(@game.photos[2].key, class:"d-block w-100") %>
-            </div>
-          <% end %>
-
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-      <% end %>
-      <%# carousel %>
 
+      <div class="description">
+        <h4><%= @game.description %></h4>
+        <p><%= @game.number_of_players %> players</p>
+        <p>Category : <%= @game.category.capitalize %></p>
+      </div>
 
-
-      <h3><%= @game.name.capitalize %></h3>
-      <%= @rating %>
-      <% if @rating %>
-        <i class="fas fa-star etoile"></i>
-      <% end %>
-      <p>number of players : <%= @game.number_of_players %></p>
-      <p>Category : <%= @game.category.capitalize %></p>
-      <%= link_to 'Back', games_path, class:"btn btn-back" %>
     </div>
-    <div class="reservations">
-      <h2><%= @game.price %>,00€</h2>
-      <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
+
+    <div class="reservation-container">
+
+      <div class="reservation">
+        <div class="d-flex titre">
+          <h5><%= @game.price %>,00€ </h5>
+          <h6 class="pl"> / day</h6>
+        </div>
+        <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
+      </div>
+
     </div>
 
   </div>
+
 </div>
 
 <div class="container">
@@ -72,31 +88,29 @@
       <h3>Reviews</h3>
       <% @game.reviews.each do |review| %>
         <div class="review">
-          <% case review.rating%>
-          <% when 5%>
-            <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
-          <% when 4%>
-            <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
-          <% when 3%>
-            <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
-          <% when 2%>
-            <p class="rating"><i class="fas fa-star etoile"></i><i class="fas fa-star etoile pd-l"></i></p>
-          <% when 1%>
-            <p class="rating"><i class="fas fa-star etoile"></i></p>
-          <% end %>
-          <p><%= review.comment %></p>
-          <p><%= review.user.pseudo %></p>
-          <%= link_to "Remove",
-                review_path(review),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn btn-remove"%>
+          <div class="d-flex titre-review">
+            <h4><%= review.user.pseudo %></h4>
+            <% case review.rating%>
+            <% when 5%>
+              <h6 class="rating"><i class="fas fa-star etoile pl"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></h6>
+            <% when 4%>
+              <h6 class="rating"><i class="fas fa-star etoile pl"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></h6>
+            <% when 3%>
+              <p class="rating"><i class="fas fa-star etoile pl"></i><i class="fas fa-star etoile pd-l"></i><i class="fas fa-star etoile pd-l"></i></p>
+            <% when 2%>
+              <p class="rating"><i class="fas fa-star etoile pl"></i><i class="fas fa-star etoile pd-l"></i></p>
+            <% when 1%>
+              <p class="rating"><i class="fas fa-star etoile pl"></i></p>
+            <% end %>
+          </div>
+          <h5><%= review.comment %></h5>
         </div>
       <% end %>
 
     </div>
 
     <div class="review-form">
+      <h4>Add a review</h4>
       <%= render "reviews/new", locales: [ @game, Review.new ] %>
     </div>
 
