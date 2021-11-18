@@ -12,6 +12,10 @@
 @import "components/index";
 @import "pages/index";
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+@import 'components/homebody';
+@import 'components/';
+@import 'components/backgroundcolors';
+@import "components/homeCards";
 
 .reviews-container {
   display: flex;
@@ -20,4 +24,16 @@
 .container {
   width: 80%;
   margin: 0 auto;
+}
+
+body{
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 200px; /* Set same as footer's height */
 }
