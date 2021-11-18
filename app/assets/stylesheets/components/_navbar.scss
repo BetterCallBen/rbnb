@@ -1,12 +1,55 @@
-.navbar-lewagon {
+.navbar-airbandme{
   justify-content: space-between;
-  background: white;
+  background: rgb(0.102, 0.098, 0.098);
+  padding: 1% 3%;
+  box-shadow: 0 0 20px rgb(107, 96, 96);
+  margin-bottom: 50px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-airbandme .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-item {
+  color:white;
+  font-size: 20px;
+}
+
+#logo {
+  height:90px;
+  width:270px;
+}
+
+
+#login{
+  color:white;
+  font-size: 20px;
+  border-radius: 30px;
+  border: 2px solid rgb(0, 240, 228);
+  padding: 10px 40px;
+}
+
+#login:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#welcome {
+  margin: 20% 0 0 0;
+  line-height: 20px;
+  color: rgb(0, 240, 228);
+}
+
+#current-user{
+  line-height: 20px;
+  margin: 0px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.dropdown-menu{
+  margin-top: 20%;
+  width: 200px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .7);
+  box-shadow: 0 0 5px rgb(0, 240, 228);
 }

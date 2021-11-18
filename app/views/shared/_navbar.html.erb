@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-airbandme">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://media.istockphoto.com/photos/pair-dice-picture-id950763696?b=1&k=20&m=950763696&s=170667a&w=0&h=g3aDbpXranZB3iyYGGGBGJvr7v7-Pi_vj-jenJxSERE=", style:'height:80px; width:130px;'%>
+    <%= image_tag "https://res.cloudinary.com/robintrllt/image/upload/v1637230900/logodicetrans_iu2irh.png", id:"logo"%>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +12,11 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= current_user.pseudo %>
+          <p id="welcome"> Welcome </p>
+          <p id="current-user"><%= current_user.pseudo %></p>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://ca.slack-edge.com/T02NE0241-U02FWNDTYT1-3ad96a1bb284-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/robintrllt/image/upload/v1637231554/singewhite_ldbcyn.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My reservations", my_reservations_path, class: "dropdown-item" %>
             <%= link_to "My games", my_games_path, class: "dropdown-item" %>
@@ -25,7 +26,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link", id:"login"%>
         </li>
       <% end %>
     </ul>

@@ -5,11 +5,21 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.where.not(owner_id: current_user.id)
+    @users = User.where.not(id: current_user.id)
 
-    @users = User.all.select do |user|
-      user.latitude.present? && user.longitude.present? && user.games.count > 0
-      
+    if params[:city].present?
+      @users = @users.near(params[:city], 20)
+      user_ids = @users.map(&:id).uniq
+      @games = @games.where(owner_id: user_ids)
+    end
+
+    if params[:date].present?
+      @games = @games.select do |game|
+        game.is_available?(params[:date])
+      end
+      user_ids = @games.map(&:owner_id).uniq
+      @users = @users.where(id: user_ids)
     end
 
     @markers = @users.map do |user|
@@ -17,9 +27,8 @@ class GamesController < ApplicationController
         lat: user.latitude,
         lng: user.longitude,
         info_window: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url("picto#{user.games.count}.png"),
+        image_url: helpers.asset_url("picto#{user.games.count}.png")
       }
-    
     end
   end
 
