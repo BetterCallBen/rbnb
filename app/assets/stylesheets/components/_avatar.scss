@@ -2,6 +2,10 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  border: 3px solid rgb(0, 232, 240);
+  border: 3px solid rgb(0, 240, 228);
   margin-left: 20px;
+}
+
+.avatar:hover {
+  box-shadow: 0 0 20px white;
 }
