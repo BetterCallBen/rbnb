@@ -16,6 +16,8 @@
 @import 'components/';
 @import 'components/backgroundcolors';
 @import "components/homeCards";
+@import "components/show";
+@import "components/caroussel";
 
 .reviews-container {
   display: flex;
@@ -30,12 +32,27 @@ body{
   position: relative;
   min-height: 100vh;
   margin: 0;
-  background: rgb(46, 46, 46);
-  // color:white;
+  background: rgb(241, 241, 241);
 }
 
 body::after {
   content: '';
   display: block;
   height: 200px; /* Set same as footer's height */
+}
+
+h6 {
+  color: rgb(88, 88, 88);
+  font-size: small;
+  margin: 0;
+}
+h4 {
+  margin: 0;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.pl {
+  padding-left: 5px;
 }
