@@ -25,7 +25,8 @@ class ReservationsController < ApplicationController
   end
 
   def my_reservations
-    @my_reservations = Reservation.where(player: current_user)
+    @my_reservations_player = Reservation.where(player: current_user)
+    @my_games = current_user.games
   end
 
   private

@@ -1,29 +1,31 @@
 <h1>Games List</h1>
 
 <% @games.each do  |game| %>
-  <%= link_to game_path(game) do %>
-
-    <div class="">
-      <% if game.photos.count.positive? %>
-          <%= cl_image_tag game.photos.first.key, height: 400, width: 400, crop: :fill %>
-      <% end %>
-
-      <h2><%= game.name %></h2>
+  <% unless game.owner == current_user  %>
+    <%= link_to game_path(game) do %>
 
       <div class="">
-        <h3>Owner: <%= game.owner.pseudo%></h3>
-        <h3>price: <%= game.price%><span>€</span></h3>
-      </div>
+        <% if game.photos.count.positive? %>
+            <%= cl_image_tag game.photos.first.key, height: 400, width: 400, crop: :fill %>
+        <% end %>
 
-      <div class="">
-        <h4>Players: <%= game.number_of_players%></h4>
-        <h4>category: <%= game.category%></h4>
-        <h4>description: <%= game.description%></h4>
+        <h2><%= game.name.capitalize %></h2>
+
+        <div class="">
+          <h3>Owner: <%= game.owner.pseudo%></h3>
+          <h3>price: <%= game.price%><span>€</span></h3>
+        </div>
+
+        <div class="">
+          <h4>Players: <%= game.number_of_players%></h4>
+          <h4>category: <%= game.category.capitalize%></h4>
+          <h4>description: <%= game.description%></h4>
+        </div>
+
       </div>
 
     </div>
-
-  </div>
+    <% end %>
   <% end %>
 <%end%>
 

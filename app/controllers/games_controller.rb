@@ -7,7 +7,10 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
 
-    @users = User.all
+    @users = User.all.select do |user|
+      user.latitude.present? && user.longitude.present? && user.games.count > 0
+      
+    end
 
     @markers = @users.map do |user|
       {
@@ -16,6 +19,7 @@ class GamesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url("picto#{user.games.count}.png"),
       }
+    
     end
   end
 

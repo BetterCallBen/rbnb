@@ -1,14 +1,14 @@
 <h2>My games</h2>
 
 <% @my_games.each do |game| %>
-<br>
-
   <%= link_to game_path(game) do %>
-
+    <% if game.photos.count.positive? %>
+        <%= cl_image_tag game.photos.first.key, height: 400, width: 400, crop: :fill %>
+    <% end %>
     <div class="">
        <h2><%= game.name %></h2>
       <div class="">
-      <h3>price: <%= game.price%><span>€</span></h3>
+      <h3>price: <%= game.price%><span>,00€</span></h3>
       </div>
        <div class="">
           <h4>Players: <%= game.number_of_players%></h4>
@@ -16,6 +16,11 @@
           <h4>description: <%= game.description%></h4>
       </div>
     </div>
-
   <% end %>
+    <%= link_to "edit", edit_game_path(game), class:"btn btn-edit" %>
+    <%= link_to "Remove",
+                game_path(game),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
 <%end%>
