@@ -21,3 +21,15 @@
   width: 80%;
   margin: 0 auto;
 }
+
+body{
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 200px; /* Set same as footer's height */
+}
