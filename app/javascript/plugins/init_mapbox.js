@@ -25,7 +25,7 @@ const addMarkersToMap = (map, markers) => {
           .setPopup(popup) // add this
           .addTo(map);
       });
-      
+
 };
 
 const fitMapToMarkers = (map, markers) => {
@@ -33,7 +33,7 @@ const fitMapToMarkers = (map, markers) => {
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
     map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
-  
+
 
 
 const initMapbox = () => {
