@@ -8,7 +8,7 @@
   justify-content: space-between;
 }
 .game-cards-index {
-  width: 850px;
+  width: 55%;
   margin: 0 50px;
 }
 .game-cards-my-games {
@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 150px;
 }
 .game-card-index > a {
   text-decoration: none;
@@ -36,11 +37,15 @@
 .photo > img{
   width: 100%;
   object-fit: cover;
-  max-height: 130px;
-  border-radius: 5px;
+  max-height: 150px;
+  border-radius: 8px;
 }
 .infos-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 62%;
+  height: 100%;
 }
 .title {
   display: flex;
@@ -64,6 +69,11 @@
 }
 .tag-card {
   font-size: 15px;
-  background-color: rgba(0, 179, 192, 0.205);
   padding: 4px 20px;
+}
+.tag-card-blue {
+  background-color: rgba(0, 179, 192, 0.205);
+}
+.tag-card-orange {
+  background-color: rgba(192, 118, 0, 0.205);
 }
