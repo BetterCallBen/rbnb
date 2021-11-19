@@ -62,9 +62,7 @@
           <p class="tag">
             Category : <%= @game.category.capitalize %>
           </p>
-          <p class="tag">
-            <%= number_to_currency(@game.price, unit: "€", separator: ",", delimiter: " ", format: "%n %u") %>
-          </p>
+
 
         </div>
         <h4><%= @game.description %></h4>
@@ -74,6 +72,7 @@
 
     <div class="reservation-container">
       <%# #flatpickr %>
+      <p id="res-price"><%= number_to_currency(@game.price, unit: "€", separator: ",", delimiter: " ", format: "%n %u") %> /day</p>
       <div id="booking-form-div"
            data-reservations="<%= @dates_off.to_json %>">
       </div>

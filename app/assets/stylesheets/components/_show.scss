@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .titre {
   display: flex;
   align-items: baseline;
@@ -23,7 +24,13 @@
 .reservation-container {
   position: relative;
   width: 34%;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px rgb(192, 192, 192);
+  background: white;
+  max-height: 450px;
 }
+
 .reservation {
   position: sticky;
   top: 0;
@@ -67,4 +74,10 @@
 }
 .review-form {
   width: 34%;
+}
+
+#res-price {
+  font-family: Paytone one;
+  text-align: center;
+  font-size: 25px;
 }
