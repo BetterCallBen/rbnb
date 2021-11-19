@@ -11,6 +11,12 @@
         <%= f.input :date, label:         false,
                            as: :date, html5: true,
                            input_html:    { name: :date, value: params.dig(:date) }, class: "search-date" %>
+        <%= f.input :category, label:         false,
+                               as: :hidden,
+                               collection:    Game::AUTHORIZED_CATEGORIES,
+                               include_blank: 'Choose category',
+                               selected:      params[:category],
+                               input_html:    { name: :category } %>
         <%= f.submit "Search", class: "btn btn-primary mb-3" %>
       <% end %>
   </div>
