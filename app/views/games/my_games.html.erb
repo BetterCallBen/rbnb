@@ -1,29 +1,41 @@
 <div class="container">
-<h2>My games</h2>
+  <h2>My games</h2>
 
-<% @my_games.each do |game| %>
-  <%= link_to game_path(game) do %>
-    <% if game.photos.count.positive? %>
-        <%= cl_image_tag game.photos.first.key, height: 400, width: 400, crop: :fill %>
+  <div class="game-cards-my-games">
+
+    <% @my_games.each do |game| %>
+
+      <div class="game-card-index">
+                <%= link_to game_path(game) do %>
+                  <div class="card-index-container">
+
+                    <div class="photo">
+                      <% if game.photos.count.positive? %>
+                          <%= cl_image_tag game.photos.first.key%>
+                      <% end %>
+                    </div>
+
+                    <div class="infos-card">
+                      <div class="title">
+                        <h2 class="game-title"><%= game.name.capitalize %></h2>
+                        <h2 class="game-title"><%= game.price%>,00 <span class="euro">€</span></h2>
+                      </div>
+
+                      <div class="description-card">
+                        <h4 class="game-text"><%= game.description%></h4>
+                      </div>
+
+                      <div class="tags-card">
+                        <h4 class="tag-card"><%= game.number_of_players%> players</h4>
+                        <h4 class="tag-card"><%= game.category.capitalize%></h4>
+                      </div>
+
+                    </div>
+                  </div>
+
+                <% end %>
+      </div>
     <% end %>
-    <div class="">
-       <h2><%= game.name %></h2>
-      <div class="">
-      <h3>price: <%= game.price%><span>,00€</span></h3>
-      </div>
-       <div class="">
-          <h4>Players: <%= game.number_of_players%></h4>
-          <h4>category: <%= game.category%></h4>
-          <h4>description: <%= game.description%></h4>
-      </div>
-    </div>
-  <% end %>
-    <%= link_to "Edit", edit_game_path(game), class:"btn btn-edit" %>
-    <%= link_to "Remove",
-                game_path(game),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class:"btn btn-remove"%>
-<%end%>
+  </div>
 
 </div>
