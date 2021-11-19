@@ -1,17 +1,12 @@
-<div class="container-search-bar">
-  <div class="search-bar">
-      <%= simple_form_for :query, method: :get,
-                                  url: games_path,
-                                  defaults: { wrapper_html: { class: "mr-3" },
-                                              required: false },
-                                  html: { class: 'd-flex my-2' } do |f| %>
-        <%= f.input :city, label:       false,
-                           placeholder: "Where ?",
-                           input_html:  { name: :city, value: params.dig(:city) }, class: "search-city" %>
-        <%= f.input :date, label:         false,
-                           as: :date, html5: true,
-                           input_html:    { name: :date, value: params.dig(:date) }, class: "search-date" %>
-        <%= f.submit "Search", class: "btn btn-primary mb-3" %>
-      <% end %>
-  </div>
-</div>
+<%= simple_form_for :query, method: :get,
+                            url: games_path,
+                            defaults: { wrapper_html: { class: "mr-3" },
+                                        required: false },
+                            html: { class: 'd-flex my-2' } do |f| %>
+  <%= f.input :city, label:         false,
+                        input_html:    { name: :city, value: params.dig(:city) } %>
+  <%= f.input :date, label:         false,
+                     as: :date, html5: true,
+                     input_html:    { name: :date, value: params.dig(:date) } %>
+  <%= f.submit "Search", class: "btn btn-primary mb-3" %>
+<% end %>
