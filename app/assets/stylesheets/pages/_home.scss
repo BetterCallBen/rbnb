@@ -1,3 +1,4 @@
+@media screen and (max-width: 1920px){
 .home-image{
   height: 75vh;
   width: 95%;
@@ -8,9 +9,79 @@
   background-size: cover;
   background-image: url('https://res.cloudinary.com/robintrllt/image/upload/v1637240014/wp4658649_hvy4mh.jpg');
 }
-
 .black-home{
   background: rgb(0.102, 0.098, 0.098);
   padding: 20px;
   margin: 0px;
+}
+
+
+}
+@media screen and (max-width: 1300px){
+  .home-image{
+    height: 55vh;
+    width: 95%;
+    border-radius: 20px;
+    margin: 30px auto;
+    margin-bottom: 60px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/robintrllt/image/upload/v1637240014/wp4658649_hvy4mh.jpg');
+  }
+  .black-home{
+    background: rgb(0.102, 0.098, 0.098);
+    padding: 20px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 920px){
+  .home-image{
+    height: 45vh;
+    width: 95%;
+    border-radius: 20px;
+    margin: 30px auto;
+    margin-bottom: 60px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/robintrllt/image/upload/v1637240014/wp4658649_hvy4mh.jpg');
+  }
+  .black-home{
+    background: rgb(0.102, 0.098, 0.098);
+    padding: 20px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 700px){
+  .home-image{
+    height: 30vh;
+    width: 95%;
+    border-radius: 20px;
+    margin: 30px auto;
+    margin-bottom: 60px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/robintrllt/image/upload/v1637240014/wp4658649_hvy4mh.jpg');
+  }
+  .black-home{
+    background: rgb(0.102, 0.098, 0.098);
+    padding: 20px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 630px){
+  .home-image{
+    height: 20vh;
+    width: 95%;
+    border-radius: 20px;
+    margin: 30px auto;
+    margin-bottom: 60px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/robintrllt/image/upload/v1637240014/wp4658649_hvy4mh.jpg');
+  }
+  .black-home{
+    background: rgb(0.102, 0.098, 0.098);
+    padding: 20px;
+    margin: 0px;
+  }
 }

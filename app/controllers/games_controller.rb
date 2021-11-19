@@ -13,6 +13,9 @@ class GamesController < ApplicationController
       user_ids = @users.map(&:id).uniq
       @games = @games.where(owner_id: user_ids)
     end
+    if params[:category].present?
+      @games = @games.where(category: params[:category])
+    end
 
     if params[:date].present?
       @games = @games.select do |game|
