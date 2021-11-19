@@ -65,6 +65,10 @@
     </div>
 
     <div class="reservation-container">
+      <%# #flatpickr %>
+      <div class="d-none" id="booking-form-div"
+          data-reservations="<%= @dates_off.to_json %>">
+      </div>
 
       <div class="reservation">
         <div class="d-flex titre">
