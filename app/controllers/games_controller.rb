@@ -35,9 +35,11 @@ class GamesController < ApplicationController
   def show
     @rating = average_rating
     @reservations = @game.reservations
-    @dates_off = @reservations.map do |reservation| {
-      off: reservation.date
-    }
+    @dates_off = @reservations.map do |reservation|
+      {
+        from: reservation.date,
+        to: reservation.date
+      }
     end
   end
 

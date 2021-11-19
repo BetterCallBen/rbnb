@@ -59,7 +59,13 @@
       <div class="description">
         <div class="infos">
           <p class="tag"><%= @game.number_of_players %> players</p>
-          <p class="tag">Category : <%= @game.category.capitalize %></p>
+          <p class="tag">
+            Category : <%= @game.category.capitalize %>
+          </p>
+          <p class="tag">
+            <%= number_to_currency(@game.price, unit: "€", separator: ",", delimiter: " ", format: "%n %u") %>
+          </p>
+
         </div>
         <h4><%= @game.description %></h4>
       </div>
@@ -68,18 +74,10 @@
 
     <div class="reservation-container">
       <%# #flatpickr %>
-      <div class="d-none" id="booking-form-div"
-          data-reservations="<%= @dates_off.to_json %>">
+      <div id="booking-form-div"
+           data-reservations="<%= @dates_off.to_json %>">
       </div>
-
-      <div class="reservation">
-        <div class="d-flex titre">
-          <h5><%= @game.price %>,00€ </h5>
-          <h6 class="pl"> / day</h6>
-        </div>
-        <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
-      </div>
-
+      <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
     </div>
 
   </div>
