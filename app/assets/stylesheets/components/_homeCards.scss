@@ -7,7 +7,7 @@
   margin-bottom: 50px;
   justify-content:space-around;
 }
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 2300px){
 .card{
   position:relative;
   background:white;
@@ -25,7 +25,7 @@
     width:19%;
     border-radius:1px;
   }
-  
+
   }
 @media screen and (max-width: 920px){
   .card{
@@ -63,7 +63,7 @@
     .categTown{
       font-size: 29px;
     }
-  
+
   .text-box-center{
     font-size: 14px;
     z-index:1;
@@ -75,7 +75,7 @@
     font-size:18px;
     font-weight:bold;
   }
-  
+
     }
 
     @media screen and (max-width: 630px){
@@ -87,7 +87,7 @@
       .categTown{
         font-size: 15px;
       }
-    
+
       .containerCards{
         display: flex;
         align-items: center;
@@ -95,9 +95,9 @@
         flex-direction: column;
       }
     .text-box-center{
-     
+
       font-size:18px;
-   
+
     }
     .boxdown{
       width:100%;
@@ -108,12 +108,12 @@
       transform-origin: bottom ;
       position: absolute;
     }
-   
+
       }
 .card{
   position:relative;
   background:white;
-  
+
   border-radius:14px;
 }
 .image-card {
@@ -159,7 +159,7 @@
   transform:scaleY(0.50);
 }
 .text-box-center{
-  
+
   z-index:1;
   position:absolute;
   top:72%;

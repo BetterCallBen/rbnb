@@ -1,7 +1,69 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "my_reservations";
+
+
 .container-games-map {
   display: flex;
   justify-content: space-between;
+}
+.game-cards-index {
+  width: 600px;
+  margin-left: 40px;
+}
+.game-cards-my-games {
+  width: 750px;
+  margin: 40px auto;
+}
+
+.game-card-index {
+  border-bottom: 1px solid grey ;
+  padding-bottom: 30px;
+  margin-bottom: 25px;
+}
+.card-index-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.game-card-index > a {
+  text-decoration: none;
+  color: black;
+}
+.photo {
+  width: 35%;
+}
+.photo > img{
+  width: 100%;
+  object-fit: cover;
+  max-height: 130px;
+  border-radius: 5px;
+}
+.infos-card {
+  width: 62%;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.game-title {
+  font-size: x-large;
+  margin: 0 0 10px 0;
+}
+.description-card {
+  color: rgb(98, 98, 98);
+  max-height: 50px;
+}
+.game-text {
+  font-size: 15px;
+}
+.tags-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+.tag-card {
+  font-size: 15px;
+  background-color: rgba(0, 179, 192, 0.205);
+  padding: 4px 20px;
 }
