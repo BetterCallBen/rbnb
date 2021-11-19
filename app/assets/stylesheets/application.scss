@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/themes/airbnb";
 
 // Your CSS partials
 @import "components/index";
@@ -73,6 +74,7 @@ h6 {
 .pl {
   padding-left: 5px;
 }
+
 a {
   text-decoration: none;
 }
