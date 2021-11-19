@@ -1,11 +1,11 @@
 <div class="container">
 
-  <h3><%= @game.name.capitalize %></h3>
+  <h1><%= @game.name.capitalize %></h1>
   <div class="titre">
     <% if @rating %>
       <i class="fas fa-star etoile"></i><%= @rating %>
     <% end %>
-    <h6 class="pl underline"><%= @game.owner.address %></h6>
+    <h6 class="pl ml underline"><%= @game.owner.address %></h6>
   </div>
   <div class="main">
 
@@ -57,9 +57,11 @@
       </div>
 
       <div class="description">
+        <div class="infos">
+          <p class="tag"><%= @game.number_of_players %> players</p>
+          <p class="tag">Category : <%= @game.category.capitalize %></p>
+        </div>
         <h4><%= @game.description %></h4>
-        <p><%= @game.number_of_players %> players</p>
-        <p>Category : <%= @game.category.capitalize %></p>
       </div>
 
     </div>
