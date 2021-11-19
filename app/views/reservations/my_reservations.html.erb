@@ -47,7 +47,7 @@
 
     <% @my_games.each do |game|%>
       <% game.reservations.each do |reservation| %>
-        <h2><b>   Name of the game: </b><%= reservation.game.name %></h2>
+        <p><b>   Name of the game: </b><%= reservation.game.name %></p>
         <p><b>    You rent your game to: </b><%= reservation.player.pseudo %></p>
         <p><b>    Date of booking: </b><%= reservation.date %></p>
         <p><b>    Price by day: </b><%= reservation.game.price %>,00€</p>
@@ -58,5 +58,5 @@
                 class:"btn btn-remove"%>
       <% end %>
     <% end %>
-
+</div>
 </div>
