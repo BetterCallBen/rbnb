@@ -1,6 +1,8 @@
 <div class="form">
   <%= simple_form_for locales do |f| %>
-    <%= f.input :date, as: :date, html5: true, label: false %>
+    <%= f.input :date, label: false,
+                       as: :string,
+                       input_html: {id: "range_start"} %>
     <%= f.button :submit, 'Réserver ce jeu', class: "btn btn-submit", data: { confirm: "Are you sure ?"} %>
     </div>
   <% end %>
