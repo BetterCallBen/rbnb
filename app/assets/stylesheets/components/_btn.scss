@@ -1,9 +1,13 @@
 .btn {
   display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  width: 100px;
+  width: 180px;
   height: 55px;
   min-width: 150px;
   min-height: 35px;
@@ -13,6 +17,46 @@
   background-image: radial-gradient(circle at center center,rgb(0, 240, 228) 0%, rgb(25, 214, 213) 27.5%, rgb(0, 212, 231) 40%,rgb(40, 188, 238) 57.5%, rgb(0, 214, 225) 75%, rgb(38, 210, 225) 100%);
 }
 
+.btn:hover{
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 0 10px white;
+}
+
 .btn-review {
   margin: 0 auto;
+}
+
+.btn-edit{
+  border: 2px solid rgb(255, 255, 255);
+  background: rgb(213, 151, 17);
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.btn-edit:hover{
+  background:rgb(130, 101, 7);
+  color: white;
+}
+
+.btn-remove{
+  border: 2px solid rgb(255, 255, 255);
+  background: rgb(177, 3, 3);
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.btn-remove:hover{
+  background: rgb(109, 6, 26);
+  color: white;
+}
+
+.btn-back{
+  background: none;
+}
+
+.btn-back:hover{
+  background: rgb(192, 192, 192);
+  color: white;
 }

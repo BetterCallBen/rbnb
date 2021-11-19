@@ -1,3 +1,4 @@
+<div class="container">
 <h2>My games</h2>
 
 <% @my_games.each do |game| %>
@@ -17,10 +18,12 @@
       </div>
     </div>
   <% end %>
-    <%= link_to "edit", edit_game_path(game), class:"btn btn-edit" %>
+    <%= link_to "Edit", edit_game_path(game), class:"btn btn-edit" %>
     <%= link_to "Remove",
                 game_path(game),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class:"btn btn-remove"%>
 <%end%>
+
+</div>
