@@ -67,21 +67,33 @@
         </div>
         <h4><%= @game.description %></h4>
       </div>
-
     </div>
 
+      <% if @game.owner == current_user %>
+      <div class="show-btns">
+      <p id="res-price"><%= number_to_currency(@game.price, unit: "€", separator: ",", delimiter: " ", format: "%n %u") %> /day</p>
+      <%= link_to "Edit", edit_game_path(@game), class:"btn btn-edit" %>
+      <%= link_to "Remove",
+                game_path(@game),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class:"btn btn-remove"%>
+      </div>
+      <% else %>
     <div class="reservation-container">
+
       <%# #flatpickr %>
       <p id="res-price"><%= number_to_currency(@game.price, unit: "€", separator: ",", delimiter: " ", format: "%n %u") %> /day</p>
       <div id="booking-form-div"
            data-reservations="<%= @dates_off.to_json %>">
       </div>
       <%= render "reservations/new", locales: [ @game, Reservation.new ] %>
-    </div>
-
+      </div>
+      <% end %>
   </div>
 
 </div>
+
 
 <div class="container">
 
