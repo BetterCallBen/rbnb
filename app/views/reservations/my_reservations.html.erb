@@ -47,6 +47,25 @@
 
     <% @my_games.each do |game|%>
       <% game.reservations.each do |reservation| %>
+        <div class="card-reservation">
+
+          <div class="card-reservation-image">
+
+            <div class="container-main-image">
+              <% if reservation.game.photos.count.positive? %>
+                <%= cl_image_tag(reservation.game.photos[0].key, id:"reservation-image1") %>
+              <% end %>
+            </div>
+            <div class="container-secondary-image">
+              <% if reservation.game.photos.count > 1 %>
+                <%= cl_image_tag(reservation.game.photos[1].key, id:"reservation-image2") %>
+              <% end %>
+              <% if reservation.game.photos.count > 2 %>
+                <%= cl_image_tag(reservation.game.photos[2].key, id:"reservation-image3") %>
+              <% end %>
+            </div>
+
+          </div>
         <p><b>   Name of the game: </b><%= reservation.game.name %></p>
         <p><b>    You rent your game to: </b><%= reservation.player.pseudo %></p>
         <p><b>    Date of booking: </b><%= reservation.date %></p>
@@ -56,7 +75,8 @@
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class:"btn btn-remove"%>
+        </div>
       <% end %>
     <% end %>
-</div>
+  </div>
 </div>
