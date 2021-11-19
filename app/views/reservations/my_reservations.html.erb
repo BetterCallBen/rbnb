@@ -5,24 +5,41 @@
   <div class="my-reservations">
 
     <% @my_reservations_player.each do |reservation| %>
-      <div class="my-reservation">
-        <p><%= reservation.game.name %></p>
-        <p>loué par : <%= reservation.game.owner.pseudo %></p>
-        <p><%= reservation.date %></p>
-        <p><%= reservation.game.price %>,00€</p>
-        <%= link_to "Remove",
+
+      <div class="card-reservation">
+
+        <div class="card-reservation-image">
+
+          <div class="container-main-image">
+            <% if reservation.game.photos.count.positive? %>
+              <%= cl_image_tag(reservation.game.photos[0].key, id:"reservation-image1") %>
+            <% end %>
+          </div>
+          <div class="container-secondary-image">
+            <% if reservation.game.photos.count > 1 %>
+              <%= cl_image_tag(reservation.game.photos[1].key, id:"reservation-image2") %>
+            <% end %>
+            <% if reservation.game.photos.count > 2 %>
+              <%= cl_image_tag(reservation.game.photos[2].key, id:"reservation-image3") %>
+            <% end %>
+          </div>
+
+        </div>
+        <p><b>    Name of the game: </b><%= reservation.game.name %></p>
+        <p><b>    You rent this game to: </b><%= reservation.game.owner.pseudo %></p>
+        <p><b>    Date of booking: </b><%= reservation.date %></p>
+        <p><b>    Price by day: </b><%= reservation.game.price %>,00€</p>
+        <%= link_to "Cancel",
                 reservation_path(reservation),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class:"btn btn-remove"%>
+
       </div>
+
     <% end %>
 
   </div>
-
-</div>
-
-<div class="container">
 
   <h2>My reservations as an owner</h2>
 
@@ -30,10 +47,10 @@
 
     <% @my_games.each do |game|%>
       <% game.reservations.each do |reservation| %>
-        <p><%= reservation.game.name %></p>
-        <p>loué à : <%= reservation.player.pseudo %></p>
-        <p><%= reservation.date %></p>
-        <p><%= reservation.game.price %>,00€</p>
+        <h2><b>   Name of the game: </b><%= reservation.game.name %></h2>
+        <p><b>    You rent your game to: </b><%= reservation.player.pseudo %></p>
+        <p><b>    Date of booking: </b><%= reservation.date %></p>
+        <p><b>    Price by day: </b><%= reservation.game.price %>,00€</p>
         <%= link_to "Remove",
                 reservation_path(reservation),
                 method: :delete,
@@ -41,7 +58,5 @@
                 class:"btn btn-remove"%>
       <% end %>
     <% end %>
-
-  </div>
 
 </div>
