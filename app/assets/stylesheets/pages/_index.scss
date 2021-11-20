@@ -50,6 +50,10 @@
 .title {
   display: flex;
   justify-content: space-between;
+  height: 15%;
+}
+.title-rating {
+  font-size: large;
 }
 .game-title {
   font-size: x-large;
@@ -57,7 +61,7 @@
 }
 .description-card {
   color: rgb(98, 98, 98);
-  max-height: 50px;
+  height: 55%;
 }
 .game-text {
   font-size: 15px;
@@ -65,7 +69,7 @@
 .tags-card {
   display: flex;
   justify-content: space-between;
-  margin-top: 18px;
+  height: 15%;
 }
 .tag-card {
   font-size: 15px;
