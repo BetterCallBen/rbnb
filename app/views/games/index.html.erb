@@ -1,3 +1,4 @@
+
 <div class="container-index">
   <h1>Games List</h1>
 
@@ -7,10 +8,16 @@
     <p>Aucun jeu dans cette zone</p>
   <% else %>
     <div class="container-games-map">
-      <div>
+
         <div class="game-cards-index">
 
           <% @games.each do |game| %>
+
+            <% sum = 0 %>
+            <% game.reviews.each do |review| %>
+              <% sum += review.rating %>
+            <% end %>
+            <% result = sum.to_f / game.reviews.count%>
 
             <div class="game-card-index">
               <%= link_to game_path(game) do %>
@@ -23,8 +30,15 @@
                   </div>
 
                   <div class="infos-card">
+
+
                     <div class="title">
-                      <h2 class="game-title"><%= game.name.capitalize %></h2>
+                        <h2 class="game-title">
+                        <%= game.name.capitalize %>
+                        <% if game.reviews.count.positive? %>
+                          <%= result %><i class="fas fa-star etoile pl"></i>
+                        <% end %>
+                        </h2>
                       <h2 class="game-title"><%= game.price%>,00 <span class="euro">€</span></h2>
                     </div>
 
@@ -33,9 +47,9 @@
                     </div>
 
                     <div class="tags-card">
-                      <h4 class="tag-card"><%= game.number_of_players%> players</h4>
-                      <h4 class="tag-card"><%= game.category.capitalize%></h4>
-                      <h4 class="tag-card">By : <%= game.owner.name.capitalize%></h4>
+                      <h4 class="tag-card tag-card-blue"><%= game.number_of_players%> players</h4>
+                      <h4 class="tag-card tag-card-blue"><%= game.category.capitalize%></h4>
+                      <h4 class="tag-card tag-card-orange">By : <%= game.owner.name.capitalize%></h4>
                     </div>
 
                   </div>
@@ -44,14 +58,18 @@
               <% end %>
             </div>
           <% end %>
+
         </div>
-      </div>
+
       <div class="container-map">
         <div id="map"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
+
     </div>
+
   <% end %>
+
 </div>
