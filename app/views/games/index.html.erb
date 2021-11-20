@@ -9,57 +9,57 @@
   <% else %>
     <div class="container-games-map">
 
-        <div class="game-cards-index">
+      <div class="game-cards-index">
 
-          <% @games.each do |game| %>
+        <% @games.each do |game| %>
 
-            <% sum = 0 %>
-            <% game.reviews.each do |review| %>
-              <% sum += review.rating %>
-            <% end %>
-            <% result = sum.to_f / game.reviews.count%>
+          <% sum = 0 %>
+          <% game.reviews.each do |review| %>
+            <% sum += review.rating %>
+          <% end %>
+          <% result = sum.to_f / game.reviews.count%>
 
-            <div class="game-card-index">
-              <%= link_to game_path(game) do %>
-                <div class="card-index-container">
+          <div class="game-card-index">
+            <%= link_to game_path(game) do %>
+              <div class="card-index-container">
 
-                  <div class="photo">
-                    <% if game.photos.count.positive? %>
-                        <%= cl_image_tag game.photos.first.key%>
-                    <% end %>
-                  </div>
-
-                  <div class="infos-card">
-
-
-                    <div class="title">
-                        <h2 class="game-title">
-                        <%= game.name.capitalize %>
-                        <% if game.reviews.count.positive? %>
-                          <span class="title-rating ml"><%= result %><i class="fas fa-star etoile petite-etoile pl"></i></span>
-                        <% end %>
-                        </h2>
-                      <h2 class="game-title"><%= game.price%>,00 <span class="euro">€</span></h2>
-                    </div>
-
-                    <div class="description-card">
-                      <h4 class="game-text"><%= game.description%></h4>
-                    </div>
-
-                    <div class="tags-card">
-                      <h4 class="tag-card tag-card-blue"><%= game.number_of_players%> players</h4>
-                      <h4 class="tag-card tag-card-blue"><%= game.category.capitalize%></h4>
-                      <h4 class="tag-card tag-card-orange">By : <%= game.owner.name.capitalize%></h4>
-                    </div>
-
-                  </div>
+                <div class="photo">
+                  <% if game.photos.count.positive? %>
+                      <%= cl_image_tag game.photos.first.key%>
+                  <% end %>
                 </div>
 
-              <% end %>
-            </div>
-          <% end %>
+                <div class="infos-card">
 
-        </div>
+
+                  <div class="title">
+                      <h2 class="game-title">
+                      <%= game.name.capitalize %>
+                      <% if game.reviews.count.positive? %>
+                        <span class="title-rating ml"><%= result %><i class="fas fa-star etoile petite-etoile pl"></i></span>
+                      <% end %>
+                      </h2>
+                    <h2 class="game-title"><%= game.price%>,00 <span class="euro">€</span></h2>
+                  </div>
+
+                  <div class="description-card">
+                    <h4 class="game-text"><%= game.description%></h4>
+                  </div>
+
+                  <div class="tags-card">
+                    <h4 class="tag-card tag-card-blue"><%= game.number_of_players%> players</h4>
+                    <h4 class="tag-card tag-card-blue"><%= game.category.capitalize%></h4>
+                    <h4 class="tag-card tag-card-orange">By : <%= game.owner.name.capitalize%></h4>
+                  </div>
+
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
 
       <div class="container-map">
         <div id="map"
