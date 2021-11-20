@@ -36,7 +36,7 @@
                         <h2 class="game-title">
                         <%= game.name.capitalize %>
                         <% if game.reviews.count.positive? %>
-                          <%= result %><i class="fas fa-star etoile pl"></i>
+                          <span class="title-rating ml"><%= result %><i class="fas fa-star etoile petite-etoile pl"></i></span>
                         <% end %>
                         </h2>
                       <h2 class="game-title"><%= game.price%>,00 <span class="euro">€</span></h2>
